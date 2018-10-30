@@ -1,8 +1,8 @@
 #!/bin/zsh
 export DOCKER_USER_ID=onlydocker
 export NGINX_IP='172.21.0.2'
-export WEBJAVA_IP='172.21.0.3'
-export LOGIC_IP='172.21.0.4'
+export WEBJAVA_IP='172.21.0.4'
+export LOGIC_IP='172.21.0.3'
 echo ''
 echo '--------------------------------------------------------------------------------'
 echo 'Clean up'
@@ -24,12 +24,12 @@ echo '--------------------------------------------------------------------------
 echo 'Images creation'
 echo '--------------------------------------------------------------------------------'
 cd ./sa-frontend
-#npm run build
+npm run build
 docker build -f Dockerfile -t $DOCKER_USER_ID/sentiment-analysis-frontend .
 cd ../sa-logic
 docker build -f Dockerfile -t $DOCKER_USER_ID/sentiment-analysis-logic .
 cd ../sa-webapp
-#mvn install
+mvn install
 docker build -f Dockerfile -t $DOCKER_USER_ID/sentiment-analysis-web-app .
 echo ''
 echo '--------------------------------------------------------------------------------'
